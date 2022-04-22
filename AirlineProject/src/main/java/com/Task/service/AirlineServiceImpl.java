@@ -102,7 +102,7 @@ public class AirlineServiceImpl implements AirlineService {
 		int refund=tick.getTotalCost()*totalPassenger;
 		System.out.println("totalpass"+ totalPassenger);
 
-		//ticket.deleteById(ticketId);
+		ticket.deleteById(ticketId);
 		
 		if (days >= 0 && hours>=0) {
 
