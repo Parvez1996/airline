@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Passenger {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int passengerId;
 	private String passengerName;
 	private int passengerAge;
 	private String passengerQualification;
@@ -19,22 +19,22 @@ public class Passenger {
 
 	}
 
-	public Passenger(int id, String passengerName, int passengerAge, String passengerQualification,
+	public Passenger(int passengerId, String passengerName, int passengerAge, String passengerQualification,
 			String passengerGender) {
 		super();
-		this.id = id;
+		this.passengerId = passengerId;
 		this.passengerName = passengerName;
 		this.passengerAge = passengerAge;
 		this.passengerQualification = passengerQualification;
 		this.passengerGender = passengerGender;
 	}
 
-	public int getId() {
-		return id;
+	public int getPassengerId() {
+		return passengerId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setPassengerId(int passengerId) {
+		this.passengerId = passengerId;
 	}
 
 	public String getPassengerName() {
@@ -69,4 +69,5 @@ public class Passenger {
 		this.passengerGender = passengerGender;
 	}
 
+	
 }

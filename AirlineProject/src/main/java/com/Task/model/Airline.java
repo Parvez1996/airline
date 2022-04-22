@@ -15,33 +15,31 @@ import javax.persistence.OneToMany;
 @Entity
 public class Airline implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int flightId;
 	private String flightName;
-	private String flightClass;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "fid",referencedColumnName="id",nullable = false)
+	@JoinColumn(name = "fid", referencedColumnName = "flightId", nullable = false)
 	private List<Ticket> ticket;
-
-	public Airline(int id, String flightName, String flightClass, List<Ticket> ticket) {
-		super();
-		this.id = id;
-		this.flightName = flightName;
-		this.flightClass = flightClass;
-		this.ticket = ticket;
-	}
 
 	public Airline() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
-		return id;
+	public Airline(int flightId, String flightName, List<Ticket> ticket) {
+		super();
+		this.flightId = flightId;
+		this.flightName = flightName;
+		this.ticket = ticket;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getFlightId() {
+		return flightId;
+	}
+
+	public void setFlightId(int flightId) {
+		this.flightId = flightId;
 	}
 
 	public String getFlightName() {
@@ -50,14 +48,6 @@ public class Airline implements Serializable {
 
 	public void setFlightName(String flightName) {
 		this.flightName = flightName;
-	}
-
-	public String getFlightClass() {
-		return flightClass;
-	}
-
-	public void setFlightClass(String flightClass) {
-		this.flightClass = flightClass;
 	}
 
 	public List<Ticket> getTicket() {

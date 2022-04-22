@@ -15,6 +15,6 @@ public interface PassengerRepository extends JpaRepository<Passenger, Integer>
 {
 	@Transactional
 	@Modifying
-	@Query(value="delete from passenger where t_id=? AND passenger_name=?", nativeQuery=true)
-	public void deletePassenger(int tId, String passengerName);
+	@Query(value="delete from passenger where passenger_id=?", nativeQuery=true)
+	public void deletePassenger(int passengerId);
 }

@@ -1,7 +1,5 @@
 package com.Task.model;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +16,6 @@ import javax.persistence.OneToMany;
 public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 	private int ticketId;
 	private Date boardingDateTime;
 	private Date departureDateTime;
@@ -26,15 +23,20 @@ public class Ticket {
 	private String source;
 	private String destination;
 	private String journeyTime;
-
+	private String flightClass;
+	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "tId",referencedColumnName="id",nullable = false)
+	@JoinColumn(name = "tId",referencedColumnName="ticketId",nullable = false)
 	private List<Passenger> passenger;
 
-	public Ticket(int id, int ticketId, Date boardingDateTime, Date departureDateTime, int totalCost, String source,
-			String destination, String journeyTime, List<Passenger> passenger) {
+	public Ticket() {
 		super();
-		this.id = id;
+		// TODO Auto-generated constructor stub
+	}
+
+	public Ticket(int ticketId, Date boardingDateTime, Date departureDateTime, int totalCost, String source,
+			String destination, String journeyTime, String flightClass, List<Passenger> passenger) {
+		super();
 		this.ticketId = ticketId;
 		this.boardingDateTime = boardingDateTime;
 		this.departureDateTime = departureDateTime;
@@ -42,19 +44,8 @@ public class Ticket {
 		this.source = source;
 		this.destination = destination;
 		this.journeyTime = journeyTime;
+		this.flightClass = flightClass;
 		this.passenger = passenger;
-	}
-
-	public Ticket() {
-		super();
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public int getTicketId() {
@@ -113,6 +104,14 @@ public class Ticket {
 		this.journeyTime = journeyTime;
 	}
 
+	public String getFlightClass() {
+		return flightClass;
+	}
+
+	public void setFlightClass(String flightClass) {
+		this.flightClass = flightClass;
+	}
+
 	public List<Passenger> getPassenger() {
 		return passenger;
 	}
@@ -121,4 +120,6 @@ public class Ticket {
 		this.passenger = passenger;
 	}
 
+	
+	
 }

@@ -10,5 +10,8 @@ import com.Task.model.Passenger;
 @Repository
 public interface AirlineRepository extends JpaRepository<Airline, Integer> {
 	
+	public List<Airline> findByFlightName(String flightName);
 
+	
+	
 }
