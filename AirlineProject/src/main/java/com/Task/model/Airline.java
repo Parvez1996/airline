@@ -58,4 +58,10 @@ public class Airline implements Serializable {
 		this.ticket = ticket;
 	}
 
+	@Override
+	public String toString() {
+		return "Airline [flightId=" + flightId + ", flightName=" + flightName + ", ticket=" + ticket + "]";
+	}
+	
+
 }

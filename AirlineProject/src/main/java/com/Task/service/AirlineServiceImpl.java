@@ -43,11 +43,6 @@ public class AirlineServiceImpl implements AirlineService {
 		List<Airline> list2 = list.stream().filter(i -> i.getFlightName().contains(flightName))
 				.collect(Collectors.toList());
 
-		for (Airline a : list2) {
-			tick.addAll(a.getTicket());
-		}
-		// changes .
-
 		return list2;
 	}
 
@@ -90,17 +85,14 @@ public class AirlineServiceImpl implements AirlineService {
 		Ticket t = ticket.getById(ticketId);
 		Date date1 = t.getBoardingDateTime();
 		Date date2 = new Date();
-		//System.out.println(date1.getHours());
 		long diffInMillies = date1.getTime() - date2.getTime();
 		long days = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 		int hours = (int) ((diffInMillies / (1000 * 60 * 60)) % 24);
 		//Cost printing code
-		List<Ticket> t1=new ArrayList<>();
 		Ticket tick=ticket.getById(ticketId);
 		List<Passenger> p2=tick.getPassenger();
 		int totalPassenger=p2.size();
 		int refund=tick.getTotalCost()*totalPassenger;
-		System.out.println("totalpass"+ totalPassenger);
 
 		ticket.deleteById(ticketId);
 		
@@ -124,8 +116,6 @@ public class AirlineServiceImpl implements AirlineService {
 		passenger.deletePassenger(passengerId);
 
 	}
-
-
 }
 
 

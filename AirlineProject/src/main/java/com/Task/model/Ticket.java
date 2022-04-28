@@ -31,7 +31,7 @@ public class Ticket {
 
 	public Ticket() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Ticket(int ticketId, Date boardingDateTime, Date departureDateTime, int totalCost, String source,
@@ -119,6 +119,14 @@ public class Ticket {
 	public void setPassenger(List<Passenger> passenger) {
 		this.passenger = passenger;
 	}
+
+	@Override
+	public String toString() {
+		return "Ticket [ticketId=" + ticketId + ", boardingDateTime=" + boardingDateTime + ", departureDateTime="
+				+ departureDateTime + ", totalCost=" + totalCost + ", source=" + source + ", destination=" + destination
+				+ ", journeyTime=" + journeyTime + ", flightClass=" + flightClass + ", passenger=" + passenger + "]";
+	}
+	
 
 	
 	
