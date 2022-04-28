@@ -98,14 +98,21 @@ public class AirlineServiceImpl implements AirlineService {
 		
 		if (days >= 0 && hours>=0) {
 
-			if (hours <1 && days == 0) {
+			if (hours <1 && days == 0) 
+			{
 				return "Ticket Cancelled...";
-			} else if (hours < 5 && hours >= 1 && days <= 0) {
+			} 
+			else if (hours < 5 && hours >= 1 && days <= 0) 
+			{
 				return "Ticket Cancelled...You will get 50% refund of Rs."+refund/2;
-			} else {
+			} 
+			else 
+			{
 				return "Ticket Cancelled...Your will get full refund of Rs."+refund;
 			}
-		} else {
+		} 
+		else 
+		{
 			return "Ticket Expired....You cannot cancel the tickets";
 		}
 	}
